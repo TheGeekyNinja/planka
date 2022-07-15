@@ -66,6 +66,17 @@ const Card = React.memo(
       [onUpdate],
     );
 
+    const handleMouseOver = () => {
+      // Todo: Save the currently focused card's ID to the store
+      // eslint-disable-next-line no-console
+      console.log('IN', id);
+    };
+    const handleMouseOut = () => {
+      // Todo: Save the currently focused card's ID to the store
+      // eslint-disable-next-line no-console
+      console.log('OUT', id);
+    };
+
     const handleNameEdit = useCallback(() => {
       nameEdit.current.open();
     }, []);
@@ -142,6 +153,8 @@ const Card = React.memo(
                       to={Paths.CARDS.replace(':id', id)}
                       className={styles.content}
                       onClick={handleClick}
+                      onMouseOver={handleMouseOver}
+                      onMouseOut={handleMouseOut}
                     >
                       {contentNode}
                     </Link>
