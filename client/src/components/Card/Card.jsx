@@ -48,6 +48,8 @@ const Card = React.memo(
     onLabelCreate,
     onLabelUpdate,
     onLabelDelete,
+    onSelect,
+    onUnselect
   }) => {
     const nameEdit = useRef(null);
 
@@ -67,14 +69,10 @@ const Card = React.memo(
     );
 
     const handleMouseOver = () => {
-      // Todo: Save the currently focused card's ID to the store
-      // eslint-disable-next-line no-console
-      console.log('IN', id);
+      onSelect(boardId, id);
     };
     const handleMouseOut = () => {
-      // Todo: Save the currently focused card's ID to the store
-      // eslint-disable-next-line no-console
-      console.log('OUT', id);
+      onUnselect(boardId, id);
     };
 
     const handleNameEdit = useCallback(() => {
@@ -240,6 +238,8 @@ Card.propTypes = {
   onLabelCreate: PropTypes.func.isRequired,
   onLabelUpdate: PropTypes.func.isRequired,
   onLabelDelete: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  onUnselect: PropTypes.func.isRequired
 };
 
 Card.defaultProps = {

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { HotKeys } from 'react-hotkeys';
 
@@ -10,22 +10,15 @@ function HotKeysWrapper(props) {
   };
   const logger = (...args) => console.log(...['shortcut', ...args]);
 
-  useEffect(() => {
-    //   logger(
-    //     // 'cardIs',
-    //     // cardIds.find((i) => i.cardId === '760005809198335001'),
-    //   );
-  }, [cardIds]);
-
   const handleMoveToListLeftTop = useCallback(() => {
     // get current card id
     const cardId = '760005809198335001';
     // get current card id's list id
     const { card } = cardIds.find((i) => i.cardId === cardId);
 
-    const nextListId = listIds[listIds.indexOf(card.listId)-1];
+    const nextListId = listIds[listIds.indexOf(card.listId) - 1];
     logger(card.listId, listIds.indexOf(card.listId), nextListId);
-    if(nextListId !== undefined){
+    if (nextListId !== undefined) {
       onMove(cardId, nextListId, 0);
     }
   }, [cardIds, listIds, onMove]);
@@ -63,11 +56,11 @@ function HotKeysWrapper(props) {
     <HotKeys
       handlers={handlers}
       keyMap={keyMap}
-      className="hot-keys-wrapper"
+      className="hotkeys-wrapper"
       style={{
         outline: 'none',
         width: 'max-content',
-        height: '100%',
+        height: 0,
       }}
     >
       {children}

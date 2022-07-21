@@ -9,6 +9,8 @@ import {
   handleBoardUpdateService,
   moveBoardService,
   updateBoardService,
+  handleSelectCardService,
+  handleUnselectCardService
 } from '../services';
 import EntryActionTypes from '../../../constants/EntryActionTypes';
 
@@ -34,5 +36,11 @@ export default function* boardWatchers() {
     takeEvery(EntryActionTypes.BOARD_DELETE_HANDLE, ({ payload: { board } }) =>
       handleBoardDeleteService(board),
     ),
+    takeEvery(EntryActionTypes.BOARD_SELECT_CARD, ({ payload: { boardId, cardId }}) =>
+      handleSelectCardService(boardId, cardId),
+    ),
+    takeEvery(EntryActionTypes.BOARD_UNSELECT_CARD, ({ payload: { boardId, cardId }}) =>
+      handleUnselectCardService(boardId, cardId),
+    )
   ]);
 }

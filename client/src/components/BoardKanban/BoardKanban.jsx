@@ -11,6 +11,7 @@ import ListAdd from './ListAdd';
 import { ReactComponent as PlusMathIcon } from '../../assets/images/plus-math-icon.svg';
 
 import styles from './BoardKanban.module.scss';
+import useBoardSensor from '../../hooks/use-board-sensor';
 
 const parseDndId = (dndId) => dndId.split(':')[1];
 
@@ -121,7 +122,11 @@ const BoardKanban = React.memo(
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div ref={wrapper} className={styles.wrapper} onMouseDown={handleMouseDown}>
           <div>
-            <DragDropContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+            <DragDropContext
+              onDragStart={handleDragStart}
+              onDragEnd={handleDragEnd}
+              sensors={[useBoardSensor]}
+            >
               <Droppable droppableId="board" type={DroppableTypes.LIST} direction="horizontal">
                 {({ innerRef, droppableProps, placeholder }) => (
                   <div

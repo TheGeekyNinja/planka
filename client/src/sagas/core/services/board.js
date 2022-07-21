@@ -11,6 +11,8 @@ import {
   handleBoardDelete,
   handleBoardUpdate,
   updateBoard,
+  boardSelectCard,
+  boardUnselectCard
 } from '../../../actions';
 import api from '../../../api';
 import { createLocalId } from '../../../utils/local-id';
@@ -166,4 +168,13 @@ export function* handleBoardDeleteService(board) {
   }
 
   yield put(handleBoardDelete(board));
+}
+
+
+export function* handleSelectCardService(boardId, cardId){
+  yield put(boardSelectCard(boardId, cardId))
+}
+
+export function* handleUnselectCardService(boardId, cardId){
+  yield put(boardUnselectCard(boardId, cardId));
 }

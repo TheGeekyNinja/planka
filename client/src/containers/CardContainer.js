@@ -26,6 +26,8 @@ import {
   transferCard,
   updateLabel,
   updateCard,
+  boardSelectCard,
+  boardUnselectCard
 } from '../actions/entry';
 import Card from '../components/Card';
 
@@ -91,6 +93,8 @@ const mapDispatchToProps = (dispatch, { id }) =>
       onLabelCreate: (data) => createLabelInCurrentBoard(data),
       onLabelUpdate: (labelId, data) => updateLabel(labelId, data),
       onLabelDelete: (labelId) => deleteLabel(labelId),
+      onSelect: boardSelectCard,
+      onUnselect: boardUnselectCard
     },
     dispatch,
   );

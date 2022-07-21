@@ -25,6 +25,7 @@ export default class extends Model {
     }),
     filterUsers: many('User', 'filterBoards'),
     filterLabels: many('Label', 'filterBoards'),
+    selectedCardId: attr()
   };
 
   static reducer({ type, payload }, Board) {
@@ -162,6 +163,12 @@ export default class extends Model {
       case ActionTypes.LABEL_FROM_BOARD_FILTER_REMOVE:
         Board.withId(payload.boardId).filterLabels.remove(payload.id);
 
+        break;
+      case ActionTypes.BOARD_SELECT_CARD:
+        Board.withId(payload.boardId).update({ selectedCardId: payload.cardId });
+        break;
+      case ActionTypes.BOARD_UNSELECT_CARD:
+        Board.withId(payload.boardId).update({ selectedCardId: payload.cardId });
         break;
       default:
     }

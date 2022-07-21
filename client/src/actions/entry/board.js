@@ -57,3 +57,19 @@ export const handleBoardDelete = (board) => ({
     board,
   },
 });
+
+export const boardSelectCard = (boardId, cardId) => ({
+  type: EntryActionTypes.BOARD_SELECT_CARD,
+  payload: {
+    boardId,
+    cardId
+  }
+});
+
+export const boardUnselectCard = (boardId, cardId) => ({
+  type: EntryActionTypes.BOARD_UNSELECT_CARD,
+  payload: {
+    boardId,
+    cardId
+  }
+});

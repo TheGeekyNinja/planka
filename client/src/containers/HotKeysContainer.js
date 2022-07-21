@@ -48,14 +48,14 @@ const makeMapStateToProps = () => {
       currentProject,
     };
   };
-}
+};
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       onMove: (id, listId, index) => {
         return moveCard(id, listId, index);
-      },
+      }
     },
     dispatch,
   );
