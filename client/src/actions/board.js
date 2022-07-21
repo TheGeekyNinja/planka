@@ -136,16 +136,16 @@ export const handleBoardDelete = (board) => ({
 
 export const boardSelectCard = (boardId, cardId) => ({
   type: ActionTypes.BOARD_SELECT_CARD,
-  paylod: {
+  payload: {
     boardId,
     cardId
   }
 })
 
-export const boardUnselectCard = (board) => ({
-  type: ActionTypes.BOARD_SELECT_CARD,
-  paylod: {
-    board,
+export const boardUnselectCard = (boardId) => ({
+  type: ActionTypes.BOARD_UNSELECT_CARD,
+  payload: {
+    boardId,
     cardId: null
   }
 })
