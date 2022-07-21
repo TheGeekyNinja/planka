@@ -8,7 +8,6 @@ function HotKeysWrapper(props) {
     moveToListLeftTop: 'shift+,',
     moveToListRightTop: 'shift+.',
   };
-  const logger = (...args) => console.log(...['shortcut', ...args]);
 
   useEffect(() => {
     console.log('SELECTED', selectedCardId)

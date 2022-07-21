@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
   return {
     board: currentBoard,
-    selectedCardId: ''
+    selectedCardId: currentBoard.selectedCardId
   };
 };
 
