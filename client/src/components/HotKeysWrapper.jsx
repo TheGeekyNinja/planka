@@ -1,19 +1,17 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { HotKeys } from 'react-hotkeys';
 
 function HotKeysWrapper(props) {
   const { children, onMove, board, selectedCardId } = props;
+
   const keyMap = {
-    moveToListLeftTop: 'shift+,',
-    moveToListRightTop: 'shift+.',
+    openTitleEdit: 'e'
   };
 
-  useEffect(() => {
-    console.log('SELECTED', selectedCardId)
-  }, [selectedCardId]);
-
-  const handlers = {}
+  const handlers = {
+    openTitleEdit: () => {}
+  }
 
   return (
     <HotKeys
@@ -25,9 +23,7 @@ function HotKeysWrapper(props) {
         width: 'max-content',
         height: 0,
       }}
-    >
-      {children}
-    </HotKeys>
+    />
   );
 }
 

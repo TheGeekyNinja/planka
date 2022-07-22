@@ -10,16 +10,14 @@ const mapStateToProps = (state) => {
 
   return {
     board: currentBoard,
-    selectedCardId: currentBoard.selectedCardId
+    selectedCardId: currentBoard?.selectedCardId
   };
 };
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      onMove: (id, listId, index) => {
-        return moveCard(id, listId, index);
-      }
+      onMove: moveCard
     },
     dispatch,
   );
